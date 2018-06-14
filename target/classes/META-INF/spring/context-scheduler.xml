@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+   <bean id="quartzJob1" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.sks.study.util.QuartzJob"/>
+        <property name="jobDataAsMap">
+            <map>
+<!--                 <entry key="fdrmChckService" value-ref="fdrmChckService" /> -->
+            </map>
+        </property>
+    </bean>
+
+    <bean id="quartzJob1Bean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="quartzJob1" />
+        <property name="cronExpression" value="0/10 * * * * ?" />
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+<!--                 <ref bean="quartzJob1Bean"/> -->
+            </list>
+        </property>
+    </bean>
+
+</beans>

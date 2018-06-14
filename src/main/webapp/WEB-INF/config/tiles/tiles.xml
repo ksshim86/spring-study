@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <!-- 메인 페이지 레이아웃 정의 -->
+<!--     <definition name="layout.main" template="/WEB-INF/jsp/cmmn/template/layoutMain.jsp"> -->
+<!--         <put-attribute name="title"  value="Study 2017" /> -->
+<!--         <put-attribute name="header" value="/WEB-INF/jsp/cmmn/tile/header.jsp" /> -->
+<!--     </definition> -->
+
+    <!-- 서브 페이지 레이아웃 정의 -->
+    <definition name="layout.main" template="/WEB-INF/jsp/cmmn/template/layoutSub.jsp">
+        <put-attribute name="title"      value="Study 2017" />
+        <put-attribute name="header"     value="/WEB-INF/jsp/cmmn/tile/header.jsp" />
+        <put-attribute name="navigation" value="/WEB-INF/jsp/cmmn/tile/navigation.jsp" />
+    </definition>
+	
+	<!-- 단독 페이지 레이아웃 정의 -->
+    <definition name="layout.mono" template="/WEB-INF/jsp/cmmn/template/layoutMono.jsp" />
+    
+    <!-- 메인 페이지 -->
+    <definition name="/cmmn/main.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/cmmn/main.jsp" />
+    </definition>
+
+    <!-- 로그인 페이지 -->
+    <definition name="/cmmn/login.tiles" extends="layout.mono">
+        <put-attribute name="content" value="/WEB-INF/jsp/cmmn/login.jsp" />
+    </definition>
+
+    <!-- 서브 페이지 -->
+    <definition name="/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}.jsp" />
+    </definition>
+    <definition name="/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+    </definition>
+    <definition name="/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}/{6}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}/{6}/{7}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}.jsp" />
+    </definition>
+    <definition name="/*/*/*/*/*/*/*/*/*.tiles" extends="layout.main">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}.jsp" />
+    </definition>
+
+</tiles-definitions>
